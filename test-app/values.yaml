@@ -6,3 +6,7 @@ image:
 
 service:
   type: LoadBalancer
+
+configMapName: my-config
+fileMountPath: /etc/myapp
+fileName: myfile.txt

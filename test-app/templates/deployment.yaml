@@ -19,3 +19,11 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 80
+        volumeMounts:
+          - name: config-volume
+            mountPath: {{ .Values.fileMountPath }}/{{ .Values.fileName }}
+            subPath: {{ .Values.fileName }}
+      volumes:
+          - name: config-volume
+            configMap:
+              name: {{ .Values.configMapName }}
